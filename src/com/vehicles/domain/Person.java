@@ -21,8 +21,8 @@ public class Person {
 	
 	@Override
 	public String toString () {
-		return "\nPERSONAL DATA: \nName: " + firstName + "\nLast name: " + lastName 
-				+ "\nBirth date: " + birthDate + "\nLICENSE: " + License.getLicense();
+		return "\nPERSONAL DATA: \n\tName: " + firstName + "\n\tLast name: " + lastName 
+				+ "\n\tBirth date: " + birthDate + "\nLICENSE: \t" + License.getLicense();
 	}
 
 }

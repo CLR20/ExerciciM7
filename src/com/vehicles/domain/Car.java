@@ -34,9 +34,9 @@ public class Car extends Vehicle {
 	
 	@Override
 	public String toString() {
-		return "\nYOUR CAR: \nPlate: " + plate + ". \nBrand: " + brand + ". "
-				+ "Color: " + color + ".\nFront wheels: " + wheels.get(0) + "; " 
-				+ wheels.get(1) + "\nBack wheels: " + wheels.get(2) + "; " + wheels.get(3);
+		return "\nYOUR CAR: \n\tPlate: " + plate + ". \n\tBrand: " + brand + ". "
+				+ "\n\tColor: " + color + ".\n\tFront wheels: " + wheels.get(0) + "; " 
+				+ wheels.get(1) + "\n\tBack wheels: " + wheels.get(2) + "; " + wheels.get(3);
 	}
 
 }

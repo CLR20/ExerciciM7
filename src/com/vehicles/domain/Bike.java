@@ -26,8 +26,9 @@ public class Bike extends Vehicle {
 	
 	@Override
 	public String toString () {
-		return "\nYOUR BIKE: \nPlate: " + plate + "\nBrand: " + brand + "\nColor: " 
-				+ color + "\nFront wheel: " + wheels.get(0) + "\nBack wheel: " + wheels.get(1);
+		return "\nYOUR BIKE: \n\tPlate: " + plate + "\n\tBrand: " + brand + "\n\tColor: " 
+				+ color + "\n\tFront wheel: " + wheels.get(0) 
+				+ "\n\tBack wheel: " + wheels.get(1);
 	}
 
 }

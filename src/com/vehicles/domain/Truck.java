@@ -37,9 +37,9 @@ public class Truck extends Vehicle {
 	
 	@Override
 	public String toString() {
-		return "\nYOUR TRUCK: \nPlate: " + plate + "\nBrand: " + brand + "\nColor: " + color
-				+ "\nFront wheels: " + wheels.get(0) + " | " + wheels.get(1)
-				+ "\nBack wheels: " + wheels.get(2) + " | " + wheels.get(3);
+		return "\nYOUR TRUCK: \n\tPlate: " + plate + "\n\tBrand: " + brand + "\n\tColor: " 
+				+ color + "\n\tFront wheels: " + wheels.get(0) + " | " + wheels.get(1)
+				+ "\n\tBack wheels: " + wheels.get(2) + " | " + wheels.get(3);
 				
 	}
 

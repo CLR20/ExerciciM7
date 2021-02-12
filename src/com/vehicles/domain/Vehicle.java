@@ -27,7 +27,6 @@ public abstract class Vehicle {
 	public String getColor() {
 		return color;
 	}
-	
 
 
 }

@@ -5,6 +5,8 @@ import com.vehicles.project.*;
 import com.vehicles.application.*;
 
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class UserConstructor {
 	
@@ -12,10 +14,12 @@ public class UserConstructor {
 	private static String firstName;
 	private static String lastName;
 	private static String birthDate;
+	private static Owner owner;
+	private static Driver driver;
 	private static String licenseType;
 	private static String licenseExp;
 	private static String hasInsurance;
-	private static String hasParking;
+	private static String hasParking;	
 	
 	public UserConstructor (String user) {
 		
@@ -50,10 +54,8 @@ public class UserConstructor {
 		System.out.println("Do you have a parking (yes / no): ");
 		hasParking = sc.nextLine();
 		
-		Owner owner = new Owner (firstName, lastName, birthDate);
-		owner.OwnershipData(hasInsurance, hasParking);
-		
-		System.out.println(owner);							
+		owner = new Owner (firstName, lastName, birthDate);
+		owner.OwnershipData(hasInsurance, hasParking);						
 	}
 	
 	public void DriverConstruction() {
@@ -77,14 +79,23 @@ public class UserConstructor {
 		licenseExp = sc.nextLine();
 		
 		License license = new License (licenseType, licenseExp);
-				
-		Driver driver = new Driver (firstName, lastName, birthDate);
-		
-		System.out.println(driver);							
+		driver = new Driver (firstName, lastName, birthDate);
+
+	}
+	
+	public Owner getOwner() {
+
+		return owner;	
+	}
+	
+	public Driver getDriver() {
+
+		return driver;	
 	}
 
 	public String getLicenseType () {
 		return licenseType;
 	}
-
+	
+	
 }

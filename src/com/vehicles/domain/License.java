@@ -19,8 +19,8 @@ public class License {
 
 	public static String getLicense() {
 		
-		return "\nName: " + completName + "\nLicense type: " + licenseType 
-				+ "\nExpiration date: " + licenseExp;
+		return "\n\tName: " + completName + "\n\tLicense type: " + licenseType 
+				+ "\n\tExpiration date: " + licenseExp;
 	}
 	
 

@@ -30,7 +30,8 @@ public class Main {
 			vC.VehicleConstruction();
 		} catch (Exception e) {			
 			e.printStackTrace();
-		}         
+		}
+        
     }
     
 }

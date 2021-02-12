@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class VehicleConstructor { 
 
 	private static String user;
-	private static UserConstructor uC;
+	private static UserConstructor constructOwner;
+	private static UserConstructor constructDriver;
 	private static String vehicle;
 	private static String lT;
 	private static String plate;
@@ -29,8 +30,8 @@ public class VehicleConstructor {
     
     public static void VehicleConstruction () throws Exception {
     	
-    	uC = new UserConstructor (user);
-    	uC.OwnerConstruction();
+    	constructOwner = new UserConstructor (user);
+    	constructOwner.OwnerConstruction();
     	    	
     	do {
     		Scanner sc = new Scanner(System.in);    	
@@ -102,7 +103,28 @@ public class VehicleConstructor {
 	    } while (0.4 > frontWheelDtr || frontWheelDtr > 4);
 	    
 	    frontWheel= new Wheel(frontWheelBrand,frontWheelDtr);    
-	    
+	    		
+		if (user.equals("Owner")) {
+
+	        sc = new Scanner (System.in);
+			System.out.println("\nWill you be the driver (y / n)?: ");
+		    String driver = sc.nextLine();
+		    
+		    if (driver.equals("n")) {
+		    	user = "Driver";
+		    	constructDriver = new UserConstructor(user);
+		    	constructDriver.DriverConstruction();
+		    	License.checkLicense();
+		    	check = License.getCheck(); 
+		    	
+		    } else {
+		    	System.out.println("That will be all, thank you.");
+		    }
+		}
+		
+		System.out.println(constructOwner.getOwner());
+		System.out.println(constructDriver.getDriver());
+
 		if (vehicle.equals("Car")) {
 			
 			makeCar();     	
@@ -117,24 +139,6 @@ public class VehicleConstructor {
         	
         	makeTruck();
         }
-		
-		if (user.equals("Owner")) {
-
-	        sc = new Scanner (System.in);
-			System.out.println("Will you be the driver (y / n)?: ");
-		    String driver = sc.nextLine();
-		    
-		    if (driver.equals("n")) {
-		    	user = "Driver";
-		    	UserConstructor uC = new UserConstructor(user);
-		    	uC.DriverConstruction();
-		    	License.checkLicense();
-		    	check = License.getCheck(); 
-		    	
-		    } else {
-		    	System.out.println("That will be all, thank you.");
-		    }
-		}
 				
     }       
     
@@ -197,6 +201,6 @@ public class VehicleConstructor {
     
     public static String getVehicle () {
     	return vehicle;
-    }
+    }      
     
 }
