@@ -1,4 +1,4 @@
-package com.vehicles.project;
+package com.vehicles.domain;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class Wheel {
 	private List wheels = new ArrayList<Wheel>();
 	
 	public Wheel(String brand, double diameter) {
+		
 		this.brand = brand;
 		this.diameter = diameter;
 		wheel[0] = brand;
@@ -19,7 +20,7 @@ public class Wheel {
 		
 	@Override
 	public String toString() {
-		return "brand = " + brand + ", diameter = " + diameter + ".";
+		return "brand = " + brand + ", diameter = " + diameter;
 	}
 	
 }

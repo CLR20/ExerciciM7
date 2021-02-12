@@ -1,6 +1,8 @@
-package com.vehicles.project;
+package com.vehicles.domain;
 
 import java.util.List;
+
+import com.vehicles.project.*;
 
 public class Bike extends Vehicle {
 
@@ -24,7 +26,7 @@ public class Bike extends Vehicle {
 	
 	@Override
 	public String toString () {
-		return "\nYour bike: \nPlate: " + plate + "\nBrand: " + brand + "\nColor: " 
+		return "\nYOUR BIKE: \nPlate: " + plate + "\nBrand: " + brand + "\nColor: " 
 				+ color + "\nFront wheel: " + wheels.get(0) + "\nBack wheel: " + wheels.get(1);
 	}
 

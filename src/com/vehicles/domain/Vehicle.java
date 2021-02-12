@@ -1,4 +1,4 @@
-package com.vehicles.project;
+package com.vehicles.domain;
 
 import java.util.ArrayList;
 import java.util.List;

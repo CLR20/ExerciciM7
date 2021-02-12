@@ -1,4 +1,4 @@
-package com.vehicles.project;
+package com.vehicles.domain;
 
 
 import com.vehicles.project.*;
@@ -34,7 +34,7 @@ public class Car extends Vehicle {
 	
 	@Override
 	public String toString() {
-		return "\nYour car: \nPlate: " + plate + ". \nBrand: " + brand + ". "
+		return "\nYOUR CAR: \nPlate: " + plate + ". \nBrand: " + brand + ". "
 				+ "Color: " + color + ".\nFront wheels: " + wheels.get(0) + "; " 
 				+ wheels.get(1) + "\nBack wheels: " + wheels.get(2) + "; " + wheels.get(3);
 	}
