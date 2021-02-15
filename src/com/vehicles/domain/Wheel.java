@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Wheel {
+	
 	private String brand;
 	private double diameter;
 	private Object[] wheel = new Object [2];
