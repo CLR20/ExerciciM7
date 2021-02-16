@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class VehicleConstructor { 
 
 	private static String user;
+	private static String addVehicle;
 	private static UserConstructor uC;
 	private static String vehicle;
 	private static String lT;
@@ -21,17 +22,22 @@ public class VehicleConstructor {
 	private static List <Wheel> frontWheels = new ArrayList <Wheel>();   
 	private static Wheel frontWheel;
 	private static Wheel backWheel;
+	protected static List vehicles = new ArrayList();
 
-    public VehicleConstructor (String user) {
+    public VehicleConstructor (String user, String addVehicle) {
 
-    	this.user = user;    
+    	this.user = user;   
+    	this.addVehicle = addVehicle;
     }
     
     public static void VehicleConstruction () throws Exception {
     	
-    	uC = new UserConstructor (user);
-    	uC.OwnerConstruction();
-    	    	
+    	uC = new UserConstructor (user, addVehicle);
+    	
+    	//if (addVehicle.equals("first")) {
+    		uC.OwnerConstruction(addVehicle);
+    	//}
+    	    	    	
     	do {
     		Scanner sc = new Scanner(System.in);    	
 	        System.out.println("\nEnter your vehicle's type (Car, Bike or Truck): ");
@@ -105,7 +111,8 @@ public class VehicleConstructor {
 	    
 		if (vehicle.equals("Car")) {
 			
-			makeCar();     	
+			makeCar(); 
+			
 		}
 		       
 		else if (vehicle.equals("Bike")) {
@@ -118,24 +125,28 @@ public class VehicleConstructor {
         	makeTruck();
         }
 		
-		if (user.equals("Owner")) {
-
+		String driver;
+		do {
 	        sc = new Scanner (System.in);
-			System.out.println("Will you be the driver (y / n)?: ");
-		    String driver = sc.nextLine();
+			System.out.println("\nDo you want to add drivers (y / n)?: ");
+		    driver = sc.nextLine();
 		    
-		    if (driver.equals("n")) {
+		    if (driver.equals("y")) {
 		    	user = "Driver";
-		    	UserConstructor uC = new UserConstructor(user);
+		    	UserConstructor uC = new UserConstructor(user, addVehicle);
 		    	uC.DriverConstruction();
 		    	License.checkLicense();
 		    	check = License.getCheck(); 
+		    	continue;
 		    	
 		    } else {
 		    	System.out.println("That will be all, thank you.");
+		    	break;
 		    }
-		}
-				
+		} while (driver.equals("y"));
+		
+		vehicles.add("VEHICLE: " + vehicle + ", " + plate + ", " + brand + ", " + color
+						+ " | " + uC.getDrivers() + "\n");				
     }       
     
     private static void makeCar() {
@@ -155,7 +166,11 @@ public class VehicleConstructor {
             e.printStackTrace();
         }
        
-       System.out.println(car);    	
+       System.out.println(car); 
+       
+       backWheels.clear();    
+       frontWheels.clear();
+       
     }
     
     private static void makeBike() {
@@ -174,6 +189,9 @@ public class VehicleConstructor {
         }
        
        System.out.println(bike);
+
+       backWheels.clear();    
+       frontWheels.clear();
     }
     
     private static void makeTruck() {
@@ -193,10 +211,18 @@ public class VehicleConstructor {
     	}
     	
     	System.out.println(truck);
+
+        backWheels.clear();    
+        frontWheels.clear();
     }
     
     public static String getVehicle () {
     	return vehicle;
+    }
+    
+    public static String getSummary () {    	
+    	return "\nDATA SUMMARY: " + "\nTotal vehicles: " + vehicles.size() + "\nTotal users: "
+    			+ uC.getUsers() + "\n" + vehicles;
     }
     
 }

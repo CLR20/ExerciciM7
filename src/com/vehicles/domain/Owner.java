@@ -19,10 +19,10 @@ public class Owner extends Person {
 	
 	@Override
 	public String toString () {
-		return "\nYOUR DATA: \nName: " + firstName + "\nLast name: " + lastName 
-				+ "\nBirth date: " + birthDate + "\nYOUR LICENSE: " + License.getLicense()
-				+ "\nYOUR INSURANCE DATA: \nYou have insurance: " + hasInsurance
-				+ "\nYou have parking: " + hasParking;
+		return "\nYOUR DATA: \n\tName: " + firstName + "\n\tLast name: " + lastName 
+				+ "\n\tBirth date: " + birthDate + "\nYOUR LICENSE: " + License.getLicense()
+				+ "\nYOUR INSURANCE DATA: \n\tYou have insurance: " + hasInsurance
+				+ "\n\tYou have parking: " + hasParking;
 	}
 
 }

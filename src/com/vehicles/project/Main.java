@@ -23,14 +23,29 @@ public class Main {
         	user = "Owner";
         }     
         
-                             
-        VehicleConstructor vC = new VehicleConstructor(user);
         
-        try {
-			vC.VehicleConstruction();
-		} catch (Exception e) {			
-			e.printStackTrace();
-		}         
+        String addVehicle = "first";
+        VehicleConstructor vC;
+        String answer = "y";        
+        do {
+        	
+            try {
+            	vC = new VehicleConstructor(user, addVehicle);
+            	vC.VehicleConstruction();
+    		} catch (Exception e) {			
+    			e.printStackTrace();
+    		}  
+            System.out.println("\nDo you want to add another vehicle? (y/n): ");
+            answer = sc.nextLine();
+            if (answer.equals("y")) {
+            	addVehicle = "other";
+            	continue;
+            } else
+            	break;
+        } while (answer.equals("y"));
+        
+        System.out.println(VehicleConstructor.getSummary());
+               
     }
     
 }
